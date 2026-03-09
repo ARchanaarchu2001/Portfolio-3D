@@ -1,9 +1,18 @@
 import { logoIconsList } from "../constants";
 
-const LogoIcon = ({ icon }) => {
+interface LogoIconItem {
+  imgPath: string;
+  name?: string;
+}
+
+interface LogoIconProps {
+  icon: LogoIconItem;
+}
+
+const LogoIcon = ({ icon }: LogoIconProps) => {
   return (
     <div className="flex-none flex-center marquee-item">
-      <img src={icon.imgPath} alt={icon.name} />
+      <img src={icon.imgPath} alt={icon.name || "logo"} />
     </div>
   );
 };

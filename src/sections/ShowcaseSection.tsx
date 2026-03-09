@@ -9,10 +9,10 @@ import { ALL_PROJECTS } from "@/constants/projects";
 gsap.registerPlugin(ScrollTrigger);
 
 const ShowcaseSection = () => {
-  const sectionRef = useRef(null);
-  const headingRef = useRef(null);
-  const featuredRef = useRef(null);
-  const cardsRef = useRef([]);
+  const sectionRef = useRef<HTMLElement | null>(null);
+  const headingRef = useRef<HTMLDivElement | null>(null);
+  const featuredRef = useRef<HTMLDivElement | null>(null);
+  const cardsRef = useRef<(HTMLAnchorElement | null)[]>([]);
 
   useGSAP(() => {
     gsap.fromTo(
@@ -73,7 +73,6 @@ const ShowcaseSection = () => {
       className="w-full px-6 md:px-10 lg:px-16 py-20 md:py-28"
     >
       <div className="mx-auto max-w-7xl">
-        {/* Section Header */}
         <div
           ref={headingRef}
           className="mb-12 md:mb-16 flex flex-col gap-4 md:flex-row md:items-end md:justify-between"
@@ -94,7 +93,6 @@ const ShowcaseSection = () => {
           </p>
         </div>
 
-        {/* Featured Project */}
         <div
           ref={featuredRef}
           className="group grid grid-cols-1 overflow-hidden rounded-[28px] border border-white/10 bg-white/5 backdrop-blur-sm md:grid-cols-2"
@@ -153,25 +151,30 @@ const ShowcaseSection = () => {
           </div>
         </div>
 
-        {/* Project Grid */}
         <div className="mt-10 grid grid-cols-1 gap-6 md:mt-8 md:grid-cols-2 xl:grid-cols-3">
           {[
             {
-              ref: (el) => (cardsRef.current[0] = el),
+             ref: (el: HTMLAnchorElement | null) => {
+  cardsRef.current[0] = el;
+},
               href: ALL_PROJECTS[1].href,
               img: "/images/project2.png",
               title: "Telestation Business Website",
               desc: "A modern corporate web experience focused on trust, services, and clear conversion paths.",
             },
             {
-              ref: (el) => (cardsRef.current[1] = el),
+              ref: (el: HTMLAnchorElement | null) => {
+  cardsRef.current[0] = el;
+},
               href: ALL_PROJECTS[2].href,
               img: "/images/project3.png",
               title: "Halaa Saudia — Bilingual Business Website",
               desc: "A bilingual digital presence crafted for clarity, local relevance, and a polished business identity.",
             },
             {
-              ref: (el) => (cardsRef.current[2] = el),
+             ref: (el: HTMLAnchorElement | null) => {
+  cardsRef.current[0] = el;
+},
               href: ALL_PROJECTS[8].href,
               img: "/images/devtinder.png",
               title: "DevTinder Matching App",
