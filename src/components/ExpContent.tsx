@@ -1,4 +1,14 @@
-const ExpContent = ({ expContent }) => {
+type ExpContentItem = {
+  title: string;
+  date: string;
+  responsibilities: string[];
+};
+
+type ExpContentProps = {
+  expContent: ExpContentItem;
+};
+
+const ExpContent = ({ expContent }: ExpContentProps) => {
   return (
     <div className="card-border rounded-xl p-10">
       <h1 className="font-semibold text-3xl">{expContent.title}</h1>
