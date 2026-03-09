@@ -1,9 +1,11 @@
+import * as THREE from "three";
 import { useGLTF } from "@react-three/drei";
+import { GroupProps } from "@react-three/fiber";
 
-export function Computer(props) {
+export function Computer(props: GroupProps) {
   const { nodes, materials } = useGLTF(
     "/models/computer-optimized-transformed.glb"
-  );
+  ) as any;
 
   return (
     <group {...props} dispose={null}>
