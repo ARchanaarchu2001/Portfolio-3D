@@ -1,8 +1,7 @@
-import * as THREE from "three";
 import { useGLTF } from "@react-three/drei";
-import { GroupProps } from "@react-three/fiber";
+import type { JSX } from "react";
 
-export function Computer(props: GroupProps) {
+export function Computer(props: JSX.IntrinsicElements["group"]) {
   const { nodes, materials } = useGLTF(
     "/models/computer-optimized-transformed.glb"
   ) as any;
